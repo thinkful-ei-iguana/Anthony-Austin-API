@@ -22,3 +22,11 @@ function apiCall(amount) {
 $(function() {
   handleDogImageAmount();
 });
+
+
+function apiCallBreed(amount) {
+    fetch(`https://dog.ceo/api/breed/${value}/images/random`)
+    .then(response => response.json())
+    .then(responseJson => displayResults(responseJson))
+    .catch(error => alert('Error'));
+}
