@@ -3,8 +3,8 @@
 function handleDogImageAmount() {
   $('#dataEntry').on('submit', e => {
     e.preventDefault();
-    console.log('button works');
-    let amount = e.currentTarget.value;
+    let amount = $('#formValueId').val();
+    apiCall(amount);
   });
 }
 
