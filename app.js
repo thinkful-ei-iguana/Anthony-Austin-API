@@ -1,10 +1,10 @@
 // handles the input of how many dog images to log into console
 
-function handleDogBreedType() {
+function handleDogImageAmount() {
   $('#dataEntry').on('submit', e => {
     e.preventDefault();
-    let breed = $('.entryPoint').val();
-    apiCallBreed(breed);
+    let amount = $('.entryPoint').val();
+    apiCall(amount);
   });
 }
 
@@ -12,13 +12,13 @@ function displayResults(input) {
   console.log(input);
 }
 
-$(function() {
-  handleDogBreedType();
-});
-
-function apiCallBreed(breed) {
-  fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+function apiCall(amount) {
+  fetch(`https://dog.ceo/api/breeds/image/random/${amount}`)
     .then(response => response.json())
     .then(responseJson => displayResults(responseJson))
     .catch(error => alert('Error'));
 }
+
+$(function() {
+  handleDogImageAmount();
+});
