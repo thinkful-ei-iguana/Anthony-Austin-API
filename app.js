@@ -3,13 +3,21 @@
 function handleDogImageAmount() {
   $('#dataEntry').on('submit', e => {
     e.preventDefault();
-    let amount = $('.entryPoint').val();
+    let amount = $('.entryPoint').val().toLowerCase();
     apiCall(amount);
   });
 }
 
 function displayResults(input) {
-  console.log(input);
+  let imgArray = [];
+  for (let i = 0; i < input.message.length; i++) {
+    imgArray.push(
+      $(`
+      <img src ="${input.message[i]}" class ="results-img">`)
+    );
+  }
+  $('.results').html(imgArray);
+  console.log(imgArray);
 }
 
 function apiCall(amount) {

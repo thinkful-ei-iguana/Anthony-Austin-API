@@ -1,13 +1,21 @@
 function handleDogBreedType() {
   $('#dataEntry').on('submit', e => {
     e.preventDefault();
-    let breed = $('.entryPoint').val();
+    let breed = $('.entryPoint').val().toLowerCase();
     apiCallBreed(breed);
   });
 }
 
 function displayResults(input) {
-  console.log(input);
+  let imgArray = [];
+  for (let i = 0; i < input.message.length; i++) {
+    imgArray.push(
+      $(`
+      <img src ="${input.message[i]}" class ="results-img">`)
+    );
+  }
+  $('.results').html(imgArray);
+  console.log(imgArray);
 }
 
 $(function() {
