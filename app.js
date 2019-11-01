@@ -2,10 +2,9 @@
 
 function handleDogImageAmount() {
   $('#dataEntry').on('submit', e => {
+    e.preventDefault();
     console.log('button works');
-    // e.preventDefault();
-
-    // let amount = e.currentTarget.value;
+    let amount = e.currentTarget.value;
   });
 }
 
@@ -19,3 +18,7 @@ function apiCall(amount) {
     .then(responseJson => displayResults(responseJson))
     .catch(error => alert('Error'));
 }
+
+$(function() {
+  handleDogImageAmount();
+});
