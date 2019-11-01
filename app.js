@@ -3,7 +3,7 @@
 function handleDogImageAmount() {
   $('#dataEntry').on('submit', e => {
     e.preventDefault();
-    let amount = $('#formValueId').val();
+    let amount = $('.entryPoint').val();
     apiCall(amount);
   });
 }
@@ -23,9 +23,8 @@ $(function() {
   handleDogImageAmount();
 });
 
-
-function apiCallBreed(amount) {
-    fetch(`https://dog.ceo/api/breed/${value}/images/random`)
+function apiCallBreed(value) {
+  fetch(`https://dog.ceo/api/breed/${value}/images/random`)
     .then(response => response.json())
     .then(responseJson => displayResults(responseJson))
     .catch(error => alert('Error'));
